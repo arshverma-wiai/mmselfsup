@@ -32,12 +32,14 @@ class BaseDataSource(object, metaclass=ABCMeta):
                  data_prefix,
                  classes=None,
                  ann_file=None,
+                 split_folder=None,
                  test_mode=False,
                  color_type='color',
                  channel_order='rgb',
                  file_client_args=dict(backend='disk')):
         self.data_prefix = data_prefix
         self.ann_file = ann_file
+        self.split_folder = split_folder
         self.test_mode = test_mode
         self.color_type = color_type
         self.channel_order = channel_order
@@ -84,6 +86,7 @@ class BaseDataSource(object, metaclass=ABCMeta):
         Returns:
             Image: PIL Image format.
         """
+        filename = None
         if self.file_client is None:
             self.file_client = mmcv.FileClient(**self.file_client_args)
 
@@ -107,12 +110,16 @@ class BaseDataSource(object, metaclass=ABCMeta):
                 img_bytes,
                 flag=self.color_type,
                 channel_order=self.channel_order)
+        elif self.data_infos[idx]["img_type"] == 'cxr':
+            image_name = self.data_infos[idx]['img_info']['filename']
+            img = self.open_image(image_name)
         else:
             img = self.data_infos[idx]['img']
 
-        img_bytes = self.file_client.get(filename)
-        img = mmcv.imfrombytes(
-            img_bytes, flag=self.color_type, channel_order=self.channel_order)
+        if filename:
+            img_bytes = self.file_client.get(filename)
+            img = mmcv.imfrombytes(
+                img_bytes, flag=self.color_type, channel_order=self.channel_order)
         img = img.astype(np.uint8)
         return Image.fromarray(img)
 

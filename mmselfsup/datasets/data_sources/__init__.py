@@ -7,5 +7,5 @@ from .imagenet_21k import ImageNet21k
 
 __all__ = [
     'BaseDataSource', 'CIFAR10', 'CIFAR100', 'ImageList', 'ImageNet',
-    'ImageNet21k'
+    'ImageNet21k', 'NIH'
 ]
