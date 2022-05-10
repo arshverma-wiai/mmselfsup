@@ -1,6 +1,6 @@
 _base_ = [
     '../_base_/models/swav.py',
-    '../_base_/datasets/NIH_swav_mcrop-2-6.py',
+    '../_base_/datasets/nih_swav_mcrop-2-6.py',
     '../_base_/schedules/lars_coslr-200e_in1k.py',
     '../_base_/default_runtime.py',
 ]
