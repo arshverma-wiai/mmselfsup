@@ -1,7 +1,7 @@
 import os
 
 _base_ = [
-    'mocov2_resnet50_8xb32-coslr-200e_nih.py'
+    'mocov2_resnet50_4xb32-coslr-200e_nih.py'
 ]
 
 split_folder = "/scratchg/data/NIH-CXR/splits/SSL-50k/"
