@@ -18,7 +18,7 @@ custom_hooks = [
 # optimizer
 optimizer = dict(
     type='LARS',
-    lr=4.8,
+    lr=2.4,
     momentum=0.9,
     weight_decay=1e-6,
     paramwise_options={
