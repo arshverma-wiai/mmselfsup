@@ -21,7 +21,7 @@ model = dict(
     backbone=dict(
         init_cfg=dict(
             type='Pretrained',
-            checkpoint='/scratchg/data/NIH-CXR/checkpoints/selfsup/resnet50_imagenet_bs2k_epochs600.pth.tar',
+            checkpoint='/scratchg/data/NIH-CXR/checkpoints/selfsup/simsiam_resnet50_8xb32-coslr-200e_in1k_selfsup.pth',
             prefix='backbone',
         )),
     )
