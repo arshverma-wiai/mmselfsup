@@ -18,7 +18,7 @@ class NIH(BaseDataSource):
     # split_version = "SSL-50k"
     # split_folder = os.path.join(base_folder, "splits", split_version)
     images_folder = os.path.join(base_folder, "images")
-    labels_processed = os.path.join(base_folder, "labels_processed_v2.csv")
+    labels_processed = os.path.join(base_folder, "labels_processed_v3.csv")
     label2image_dict = os.path.join(base_folder, "images_per_label.json")
 
     name_to_feature_code_mapping = {
